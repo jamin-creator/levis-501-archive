@@ -265,11 +265,11 @@ const LevisArchive = () => {
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")` }}>
       </div>
 
-      <header className="w-full max-w-6xl z-10 border-b-2 border-[#2c241b] pb-6 mb-8 flex justify-between items-end">
+      <header className="w-full max-w-4xl z-10 border-b-2 border-[#2c241b] pb-4 mb-6 flex justify-between items-end">
         <div>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>Inside the 1930’s Levi’s 501: American Design Heritage</h1>
-          <h2 className={`text-lg md:text-2xl italic mt-2 ${modelYear === '1933' ? 'text-[#8b3a1a]' : 'text-[#2a3b55]'} transition-colors duration-300`}>
-             <span className="font-bold">{modelYear}</span> <span className="text-sm uppercase tracking-widest">{modelYear === '1933' ? 'Original Spec' : '2025 Reproduction'}</span>
+          <h1 className="text-xl md:text-3xl font-bold tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>Inside the 1930’s Levi’s 501: American Design Heritage</h1>
+          <h2 className={`text-md md:text-xl italic mt-1 ${modelYear === '1933' ? 'text-[#8b3a1a]' : 'text-[#2a3b55]'} transition-colors duration-300`}>
+             <span className="font-bold">{modelYear}</span> <span className="text-xs uppercase tracking-widest">{modelYear === '1933' ? 'Original Spec' : '2025 Reproduction'}</span>
           </h2>
         </div>
         <div className="flex flex-col items-end">
@@ -284,17 +284,17 @@ const LevisArchive = () => {
                      setSummary(null);
                      setSummarySources([]);
                  }}
-                 className={`mt-2 px-3 py-2 text-xs md:text-sm font-bold border rounded-lg flex items-center gap-2 transition-all duration-300 
+                 className={`mt-2 px-3 py-1 text-xs md:text-sm font-bold border rounded-lg flex items-center gap-2 transition-all duration-300 
                    ${modelYear === '1933' ? 'bg-[#8b3a1a] text-white hover:bg-[#a04e28]' : 'bg-[#2a3b55] text-white hover:bg-[#3d506b]'}`}
              >
-                 <ArrowLeftRight size={16} />
+                 <ArrowLeftRight size={14} />
                  Switch to {modelYear === '1933' ? '2025 REPRODUCTION' : '1933 ORIGINAL'}
              </button>
         </div>
       </header>
 
-      <main className="w-full max-w-6xl z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 flex-grow">
-        <div className="lg:col-span-2 relative bg-[#f4f1e1] border border-[#d1c7a8] shadow-[2px_2px_10px_rgba(0,0,0,0.1)] p-8 min-h-[600px] flex items-center justify-center overflow-hidden">
+      <main className="w-full max-w-4xl z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 flex-grow">
+        <div className="lg:col-span-2 relative bg-[#f4f1e1] border border-[#d1c7a8] shadow-[2px_2px_10px_rgba(0,0,0,0.1)] p-6 min-h-[500px] flex items-center justify-center overflow-hidden">
           {showGrid && (
             <div className="absolute inset-0 pointer-events-none opacity-10" 
                   style={{ backgroundImage: 'linear-gradient(#2c241b 1px, transparent 1px), linear-gradient(90deg, #2c241b 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
@@ -316,23 +316,23 @@ const LevisArchive = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <div className="bg-[#fdfbf7] p-6 border-l-4 border-[#8b3a1a] shadow-sm relative">
-            <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-              <Info size={18} className="text-[#8b3a1a]" />
+        <div className="flex flex-col gap-4">
+          <div className="bg-[#fdfbf7] p-4 border-l-4 border-[#8b3a1a] shadow-sm relative">
+            <h3 className="font-bold text-md mb-2 flex items-center gap-2">
+              <Info size={16} className="text-[#8b3a1a]" />
               Historical Thesis
             </h3>
-            <p className="text-sm leading-relaxed text-justify opacity-90">
+            <p className="text-xs leading-relaxed text-justify opacity-90">
               {thesis.content}
             </p>
           </div>
 
-          <div className="flex-grow bg-[#2c241b] text-[#f4f1e1] p-6 relative overflow-hidden">
+          <div className="flex-grow bg-[#2c241b] text-[#f4f1e1] p-4 relative overflow-hidden">
              <div className="absolute top-0 right-0 p-4 opacity-10">
-               <Shield size={120} />
+               <Shield size={100} />
              </div>
              
-             <h3 className="text-xs uppercase tracking-[0.2em] mb-6 text-[#d4af37] border-b border-[#d4af37]/30 pb-2">
+             <h3 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-[#d4af37] border-b border-[#d4af37]/30 pb-1">
                Technical Specifications - {modelYear}
              </h3>
              
@@ -340,12 +340,12 @@ const LevisArchive = () => {
                <div className="animate-in fade-in duration-300">
                  {hotspots[modelYear][view].map(h => h.id === activeHotspot && (
                    <div key={h.id}>
-                     <h4 className="text-2xl font-serif mb-2 text-[#e6dcc5]">{h.label}</h4>
-                     <p className="text-sm leading-relaxed opacity-80 border-l-2 border-[#d4af37] pl-4">{h.text}</p>
+                     <h4 className="text-xl font-serif mb-1 text-[#e6dcc5]">{h.label}</h4>
+                     <p className="text-xs leading-relaxed opacity-80 border-l-2 border-[#d4af37] pl-3">{h.text}</p>
                      
-                     <div className="mt-8 bg-white/5 p-4 rounded border border-white/10 text-center">
-                       <div className="text-xs uppercase opacity-50 mb-2">Component Visualization</div>
-                       <div className="h-24 w-full flex items-center justify-center">
+                     <div className="mt-4 bg-white/5 p-3 rounded border border-white/10 text-center">
+                       <div className="text-[10px] uppercase opacity-50 mb-1">Component Visualization</div>
+                       <div className="h-20 w-full flex items-center justify-center">
                           {h.id.includes('tab') && (modelYear === '1933' ? 
                               <div className="w-4 h-12 bg-red-700 relative"><span className="absolute -right-4 top-4 text-[8px] text-white -rotate-90">LEVI</span></div> : 
                               <div className="text-xs text-gray-400 border border-gray-600 p-2">MISSING ON 2025 REPRO</div>
@@ -373,29 +373,29 @@ const LevisArchive = () => {
                </div>
              ) : (
                <div className="h-full flex flex-col items-center justify-center opacity-40 text-center">
-                 <Search size={48} className="mb-4" />
-                 <p className="text-sm">Select a highlighted point on the technical drawing to inspect construction details.</p>
+                 <Search size={40} className="mb-3" />
+                 <p className="text-xs">Select a highlighted point on the technical drawing to inspect construction details.</p>
                </div>
              )}
           </div>
            {/* Summary Generator Box */}
-          <div className="bg-[#fdfbf7] p-6 border-t-4 border-[#2a3b55] shadow-sm relative">
-            <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+          <div className="bg-[#fdfbf7] p-4 border-t-4 border-[#2a3b55] shadow-sm relative">
+            <h3 className="font-bold text-md mb-3 flex items-center gap-2">
               Generate Archival Summary (LLM)
             </h3>
-            <p className="text-sm leading-relaxed mb-4 opacity-80">
+            <p className="text-xs leading-relaxed mb-3 opacity-80">
                 Instantly generate a concise, shareable summary of the **{modelYear}** model's history.
             </p>
             
             <button
                 onClick={generateSummary}
                 disabled={isGenerating}
-                className={`w-full px-4 py-2 text-sm font-bold border rounded-lg flex items-center justify-center gap-2 transition-all duration-300 
+                className={`w-full px-3 py-1.5 text-xs font-bold border rounded-lg flex items-center justify-center gap-2 transition-all duration-300 
                   ${isGenerating ? 'bg-gray-400 text-gray-700' : 'bg-[#2a3b55] text-white hover:bg-[#3d506b]'}`}
             >
                 {isGenerating ? (
                     <>
-                        <Loader2 size={16} className="animate-spin" />
+                        <Loader2 size={14} className="animate-spin" />
                         Generating Summary...
                     </>
                 ) : (
@@ -404,22 +404,22 @@ const LevisArchive = () => {
             </button>
 
             {(summary || summaryError) && (
-                <div className="mt-4 p-3 border border-gray-300 bg-white shadow-inner">
-                    <div className="flex justify-between items-center mb-2 border-b pb-1">
-                        <h4 className="text-xs uppercase tracking-wider font-bold text-[#8b3a1a]">LLM Output</h4>
-                         <button onClick={() => copyToClipboard(summary)} className="text-xs text-[#2a3b55] hover:underline flex items-center gap-1 disabled:opacity-50" disabled={!summary}>
-                            <Clipboard size={12}/> Copy Text
+                <div className="mt-3 p-2 border border-gray-300 bg-white shadow-inner">
+                    <div className="flex justify-between items-center mb-1 border-b pb-0.5">
+                        <h4 className="text-[10px] uppercase tracking-wider font-bold text-[#8b3a1a]">LLM Output</h4>
+                         <button onClick={() => copyToClipboard(summary)} className="text-[10px] text-[#2a3b55] hover:underline flex items-center gap-1 disabled:opacity-50" disabled={!summary}>
+                            <Clipboard size={10}/> Copy Text
                          </button>
                     </div>
                     {summary ? (
                         <>
-                            <p className="text-sm italic leading-snug">{summary}</p>
+                            <p className="text-xs italic leading-snug">{summary}</p>
                             {summarySources.length > 0 && (
-                                <div className="mt-2 pt-2 border-t border-gray-100">
-                                    <h5 className="text-[10px] font-bold uppercase text-gray-500 mb-1">Sources Cited:</h5>
+                                <div className="mt-1 pt-1 border-t border-gray-100">
+                                    <h5 className="text-[9px] font-bold uppercase text-gray-500 mb-0.5">Sources Cited:</h5>
                                     <ul className="list-disc list-inside space-y-0.5">
                                         {summarySources.map((s, index) => (
-                                            <li key={index} className="text-[10px] text-gray-600 truncate" title={s.title}>
+                                            <li key={index} className="text-[9px] text-gray-600 truncate" title={s.title}>
                                                 <a href={s.uri} target="_blank" rel="noopener noreferrer" className="hover:underline">{s.title || s.uri}</a>
                                             </li>
                                         ))}
@@ -428,14 +428,14 @@ const LevisArchive = () => {
                             )}
                         </>
                     ) : (
-                        <p className="text-sm text-red-600 font-bold">{summaryError}</p>
+                        <p className="text-xs text-red-600 font-bold">{summaryError}</p>
                     )}
                 </div>
             )}
           </div>
         </div>
       </main>
-      <footer className="w-full max-w-6xl mt-8 text-[10px] opacity-60 flex justify-between uppercase tracking-widest">
+      <footer className="w-full max-w-4xl mt-6 text-[10px] opacity-60 flex justify-between uppercase tracking-widest">
         <div>Proprietary & Confidential</div>
         <div>Scale 1:10 • Ref {modelYear}-501</div>
       </footer>
